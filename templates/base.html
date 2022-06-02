@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My app</title>
+</head>
+<body>
+    <center><h1>My Daily checklist</h1></center>
+    <form action="/insert" method="post">
+        <input type="text" name="c_name">
+        <button type="submit">Add</button>
+    </form>
+    Recent task added: {{c_name}}
+    <center><h1>Added task</h1></center>
+    {% for i in my_list %}
+    {{i.c_id}} | {{i.c_name}} | <a href="/delete/{{i.c_id}}">Delete</a><br>
+    {% endfor %}
+</body>
+</html>
