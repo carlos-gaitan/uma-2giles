@@ -44,9 +44,9 @@ jobs:
         # Email from Heroku Account
         heroku_email: mardeltux@gmail.com
         # The appname to use for deploying/updating
-        heroku_app_name: python-devops-elcharly
+        heroku_app_name: uma-2giles
         # The branch that you would like to deploy to Heroku
-        branch: main # optional, default is HEAD
+        branch: # optional, default is HEAD
         # Set this to true if want to use --force
         useforce: # optional
         # Set if your app is located in a subdirectory.
