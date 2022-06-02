@@ -19,32 +19,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
+    
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        #if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        pip install -r requirements.txt
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         
     - name: Test with pytest
       run: |
         pytest test.py
-     
-    - name: Check docker installed or not
-      run:
-        docker run hello-world
-        
-    - name: Build and push Docker images
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{secrets.DOCKER_USERNAME}}
-        password: ${{secrets.DOCKER_PASSWORD}}
-        repository: mardeltux/python-devops
-        tag_with_ref: true
-
+    
     - name: Heroku Action
       # You may pin to the exact commit or the version.
       # uses: CDNievas/heroku-action@c9cf9c85571e67583e44ec92c0d1113f66b0e838
@@ -70,4 +59,3 @@ jobs:
         buildpacks: # optional, default is 
         # Path to an localized env file
         env_file: # optional, default is 
-      
