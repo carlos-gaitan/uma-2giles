@@ -13,7 +13,7 @@ class Myapp(db.Model):
 
 @app.route('/')
 def home():
-	return ':: uma zone by 2giles :: </br> Testing ....'
+	return ':: uma zone by 2giles :: </br> Testing and meeting with Omar ....'
 
 @app.route('/insert', methods=["POST"])
 def insert():
